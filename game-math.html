@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Math Game - AdaptiveLearn</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Math Challenge Game</h1>
+  <p>Solve the addition problems as fast as you can!</p>
+  <div id="problem"></div>
+  <input type="number" id="answer" placeholder="Your answer">
+  <button onclick="checkAnswer()">Submit</button>
+  <div id="feedback"></div>
+  <a href="index.html">Back to Home</a>
+
+  <script>
+    let num1, num2, score = 0;
+
+    function generateProblem() {
+      num1 = Math.floor(Math.random() * 10);
+      num2 = Math.floor(Math.random() * 10);
+      document.getElementById("problem").innerHTML = num1 + " + " + num2 + " = ?";
+      document.getElementById("answer").value = "";
+    }
+
+    function checkAnswer() {
+      const userAnswer = parseInt(document.getElementById("answer").value);
+      if (userAnswer === num1 + num2) {
+        score++;
+        document.getElementById("feedback").innerHTML = "Correct! Score: " + score;
+      } else {
+        document.getElementById("feedback").innerHTML = "Try again! Score: " + score;
+      }
+      generateProblem();
+    }
+
+    generateProblem();
+  </script>
+</body>
+</html>

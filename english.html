@@ -7,7 +7,51 @@
 </head>
 <body>
   <h1>English</h1>
-  <p>Welcome to English. Lessons and quizzes coming soon!</p>
+  <p>Lesson: Parts of Speech</p>
+  <p>Words in English are categorized by their role in a sentence. Examples include nouns, verbs, and adjectives.</p>
+
+  <h2>Quick Quiz</h2>
+  <form id="quiz-form">
+    <p>1. Which word is a noun?</p>
+    <input type="radio" name="q1" value="a"> Run<br>
+    <input type="radio" name="q1" value="b"> Apple<br>
+    <input type="radio" name="q1" value="c"> Quickly<br>
+
+    <p>2. Which word is a verb?</p>
+    <input type="radio" name="q2" value="a"> Book<br>
+    <input type="radio" name="q2" value="b"> Blue<br>
+    <input type="radio" name="q2" value="c"> Jump<br>
+
+    <p>3. Which word is an adjective?</p>
+    <input type="radio" name="q3" value="a"> Soft<br>
+    <input type="radio" name="q3" value="b"> Cat<br>
+    <input type="radio" name="q3" value="c"> Dance<br><br>
+
+    <button type="button" onclick="submitQuiz()">Submit</button>
+  </form>
+
+  <div id="results" style="margin-top:20px;"></div>
   <a href="index.html">Back to Home</a>
+  <script>
+    function submitQuiz() {
+      const answers = { q1: 'b', q2: 'c', q3: 'a' };
+      let score = 0;
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) {
+          score++;
+        }
+      }
+      let resultText = "Your score: " + score + "/3<br>";
+      if (score === 3) {
+        resultText += "<strong>Excellent! You earned an English Star badge!</strong><br><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Gold_Star.svg/1200px-Gold_Star.svg.png' width='50'>";
+      } else if (score === 2) {
+        resultText += "Good job! Keep practicing.";
+      } else {
+        resultText += "Keep trying, you'll get there!";
+      }
+      document.getElementById("results").innerHTML = resultText;
+    }
+  </script>
 </body>
 </html>

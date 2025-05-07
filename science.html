@@ -7,7 +7,51 @@
 </head>
 <body>
   <h1>Natural Sciences</h1>
-  <p>Welcome to Natural Sciences. Lessons and quizzes coming soon!</p>
+  <p>Lesson: Living and Non-Living Things</p>
+  <p>Natural Sciences help us understand the world around us. A key topic is identifying what is living (like animals and plants) and what is non-living (like rocks and water).</p>
+
+  <h2>Quick Quiz</h2>
+  <form id="quiz-form">
+    <p>1. Which of these is a living thing?</p>
+    <input type="radio" name="q1" value="a"> Rock<br>
+    <input type="radio" name="q1" value="b"> Dog<br>
+    <input type="radio" name="q1" value="c"> Water<br>
+
+    <p>2. What do all living things need?</p>
+    <input type="radio" name="q2" value="a"> Internet<br>
+    <input type="radio" name="q2" value="b"> Food and water<br>
+    <input type="radio" name="q2" value="c"> Cars<br>
+
+    <p>3. Which of these is non-living?</p>
+    <input type="radio" name="q3" value="a"> Tree<br>
+    <input type="radio" name="q3" value="b"> Bird<br>
+    <input type="radio" name="q3" value="c"> Chair<br><br>
+
+    <button type="button" onclick="submitQuiz()">Submit</button>
+  </form>
+
+  <div id="results" style="margin-top:20px;"></div>
   <a href="index.html">Back to Home</a>
+  <script>
+    function submitQuiz() {
+      const answers = { q1: 'b', q2: 'b', q3: 'c' };
+      let score = 0;
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) {
+          score++;
+        }
+      }
+      let resultText = "Your score: " + score + "/3<br>";
+      if (score === 3) {
+        resultText += "<strong>Excellent! You earned a Science Star badge!</strong><br><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Gold_Star.svg/1200px-Gold_Star.svg.png' width='50'>";
+      } else if (score === 2) {
+        resultText += "Good job! Keep practicing.";
+      } else {
+        resultText += "Keep trying, you'll get there!";
+      }
+      document.getElementById("results").innerHTML = resultText;
+    }
+  </script>
 </body>
 </html>

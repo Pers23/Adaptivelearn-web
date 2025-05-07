@@ -7,7 +7,51 @@
 </head>
 <body>
   <h1>Mathematics</h1>
-  <p>Welcome to Mathematics. Lessons and quizzes coming soon!</p>
+  <p>Lesson: Numbers and Operations</p>
+  <p>Understanding how numbers work is the foundation of all mathematics. This includes addition, subtraction, multiplication, and division.</p>
+
+  <h2>Quick Quiz</h2>
+  <form id="quiz-form">
+    <p>1. What is 5 + 3?</p>
+    <input type="radio" name="q1" value="a"> 6<br>
+    <input type="radio" name="q1" value="b"> 8<br>
+    <input type="radio" name="q1" value="c"> 9<br>
+
+    <p>2. What is 9 - 4?</p>
+    <input type="radio" name="q2" value="a"> 6<br>
+    <input type="radio" name="q2" value="b"> 5<br>
+    <input type="radio" name="q2" value="c"> 4<br>
+
+    <p>3. What is 3 x 2?</p>
+    <input type="radio" name="q3" value="a"> 5<br>
+    <input type="radio" name="q3" value="b"> 6<br>
+    <input type="radio" name="q3" value="c"> 9<br><br>
+
+    <button type="button" onclick="submitQuiz()">Submit</button>
+  </form>
+
+  <div id="results" style="margin-top:20px;"></div>
   <a href="index.html">Back to Home</a>
+  <script>
+    function submitQuiz() {
+      const answers = { q1: 'b', q2: 'b', q3: 'b' };
+      let score = 0;
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) {
+          score++;
+        }
+      }
+      let resultText = "Your score: " + score + "/3<br>";
+      if (score === 3) {
+        resultText += "<strong>Excellent! You earned a Math Star badge!</strong><br><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Gold_Star.svg/1200px-Gold_Star.svg.png' width='50'>";
+      } else if (score === 2) {
+        resultText += "Good job! Keep practicing.";
+      } else {
+        resultText += "Keep trying, you'll get there!";
+      }
+      document.getElementById("results").innerHTML = resultText;
+    }
+  </script>
 </body>
 </html>

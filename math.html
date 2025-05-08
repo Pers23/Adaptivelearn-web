@@ -1,69 +1,195 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Math Quiz - AdaptiveLearn</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    h1 { color: #2c3e50; }
-    .question { margin-bottom: 20px; }
-    .options label { display: block; margin-left: 20px; font-size: 16px; }
-    .submit-btn { padding: 12px 24px; font-size: 18px; background-color: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; margin-top: 20px; }
-    .feedback { margin-top: 10px; font-weight: bold; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz - AdaptiveLearn</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #2c3e50; }
+        .question { margin-bottom: 20px; }
+        .options input { margin-right: 10px; }
+        .submit-btn { font-size: 18px; padding: 10px 20px; background-color: #27ae60; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .feedback { margin-top: 10px; font-style: italic; color: red; }
+    </style>
 </head>
 <body>
-  <h1>Math Quiz</h1>
-  <form id="quizForm">
+    <h1>Math Quiz</h1>
+    <form id="quizForm">
+        <!-- 15 questions below -->
+        
     <div class="question">
-      <p>1. What is the value of 3 × 4 + 2?</p>
-      <div class="options">
-        <label><input type="radio" name="q1" value="10" /> 10</label>
-        <label><input type="radio" name="q1" value="14" /> 14</label>
-        <label><input type="radio" name="q1" value="18" /> 18</label>
-      </div>
+        <p><strong>Q1:</strong> What is 1 + 1?</p>
+        <div class="options">
+            <label><input type="radio" name="q1" value="2"> 2</label><br>
+            <label><input type="radio" name="q1" value="3"> 3</label><br>
+            <label><input type="radio" name="q1" value="1"> 1</label><br>
+        </div>
+        <div class="feedback" id="feedback1"></div>
     </div>
+    
     <div class="question">
-      <p>2. Simplify: 5² - 3²</p>
-      <div class="options">
-        <label><input type="radio" name="q2" value="4" /> 4</label>
-        <label><input type="radio" name="q2" value="16" /> 16</label>
-        <label><input type="radio" name="q2" value="25" /> 25</label>
-      </div>
+        <p><strong>Q2:</strong> What is 2 + 2?</p>
+        <div class="options">
+            <label><input type="radio" name="q2" value="4"> 4</label><br>
+            <label><input type="radio" name="q2" value="5"> 5</label><br>
+            <label><input type="radio" name="q2" value="3"> 3</label><br>
+        </div>
+        <div class="feedback" id="feedback2"></div>
     </div>
-    <!-- More questions would be added here similarly -->
-    <button class="submit-btn" type="submit">Submit</button>
-    <div id="results" class="feedback"></div>
-  </form>
-  <script>
-    document.getElementById('quizForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      let score = 0;
-      let feedback = '';
-
-      const answers = { q1: '14', q2: '16' }; // Correct answers
-      const explanations = {
-        q1: "3 × 4 = 12, then 12 + 2 = 14.",
-        q2: "5² = 25 and 3² = 9, so 25 - 9 = 16."
-      };
-
-      for (const q in answers) {
-        const selected = document.querySelector(`input[name="${q}"]:checked`);
-        if (selected) {
-          if (selected.value === answers[q]) {
-            score++;
-          } else {
-            feedback += `<p><strong>Question ${q.slice(1)}:</strong> Incorrect. ${explanations[q]}</p>`;
-          }
-        } else {
-          feedback += `<p><strong>Question ${q.slice(1)}:</strong> No answer selected.</p>`;
-        }
-      }
-
-      feedback = `<p>You got ${score} out of ${Object.keys(answers).length} correct.</p>` + feedback;
-      document.getElementById('results').innerHTML = feedback;
-    });
-  </script>
+    
+    <div class="question">
+        <p><strong>Q3:</strong> What is 3 + 3?</p>
+        <div class="options">
+            <label><input type="radio" name="q3" value="6"> 6</label><br>
+            <label><input type="radio" name="q3" value="7"> 7</label><br>
+            <label><input type="radio" name="q3" value="5"> 5</label><br>
+        </div>
+        <div class="feedback" id="feedback3"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q4:</strong> What is 4 + 4?</p>
+        <div class="options">
+            <label><input type="radio" name="q4" value="8"> 8</label><br>
+            <label><input type="radio" name="q4" value="9"> 9</label><br>
+            <label><input type="radio" name="q4" value="7"> 7</label><br>
+        </div>
+        <div class="feedback" id="feedback4"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q5:</strong> What is 5 + 5?</p>
+        <div class="options">
+            <label><input type="radio" name="q5" value="10"> 10</label><br>
+            <label><input type="radio" name="q5" value="11"> 11</label><br>
+            <label><input type="radio" name="q5" value="9"> 9</label><br>
+        </div>
+        <div class="feedback" id="feedback5"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q6:</strong> What is 6 + 6?</p>
+        <div class="options">
+            <label><input type="radio" name="q6" value="12"> 12</label><br>
+            <label><input type="radio" name="q6" value="13"> 13</label><br>
+            <label><input type="radio" name="q6" value="11"> 11</label><br>
+        </div>
+        <div class="feedback" id="feedback6"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q7:</strong> What is 7 + 7?</p>
+        <div class="options">
+            <label><input type="radio" name="q7" value="14"> 14</label><br>
+            <label><input type="radio" name="q7" value="15"> 15</label><br>
+            <label><input type="radio" name="q7" value="13"> 13</label><br>
+        </div>
+        <div class="feedback" id="feedback7"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q8:</strong> What is 8 + 8?</p>
+        <div class="options">
+            <label><input type="radio" name="q8" value="16"> 16</label><br>
+            <label><input type="radio" name="q8" value="17"> 17</label><br>
+            <label><input type="radio" name="q8" value="15"> 15</label><br>
+        </div>
+        <div class="feedback" id="feedback8"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q9:</strong> What is 9 + 9?</p>
+        <div class="options">
+            <label><input type="radio" name="q9" value="18"> 18</label><br>
+            <label><input type="radio" name="q9" value="19"> 19</label><br>
+            <label><input type="radio" name="q9" value="17"> 17</label><br>
+        </div>
+        <div class="feedback" id="feedback9"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q10:</strong> What is 10 + 10?</p>
+        <div class="options">
+            <label><input type="radio" name="q10" value="20"> 20</label><br>
+            <label><input type="radio" name="q10" value="21"> 21</label><br>
+            <label><input type="radio" name="q10" value="19"> 19</label><br>
+        </div>
+        <div class="feedback" id="feedback10"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q11:</strong> What is 11 + 11?</p>
+        <div class="options">
+            <label><input type="radio" name="q11" value="22"> 22</label><br>
+            <label><input type="radio" name="q11" value="23"> 23</label><br>
+            <label><input type="radio" name="q11" value="21"> 21</label><br>
+        </div>
+        <div class="feedback" id="feedback11"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q12:</strong> What is 12 + 12?</p>
+        <div class="options">
+            <label><input type="radio" name="q12" value="24"> 24</label><br>
+            <label><input type="radio" name="q12" value="25"> 25</label><br>
+            <label><input type="radio" name="q12" value="23"> 23</label><br>
+        </div>
+        <div class="feedback" id="feedback12"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q13:</strong> What is 13 + 13?</p>
+        <div class="options">
+            <label><input type="radio" name="q13" value="26"> 26</label><br>
+            <label><input type="radio" name="q13" value="27"> 27</label><br>
+            <label><input type="radio" name="q13" value="25"> 25</label><br>
+        </div>
+        <div class="feedback" id="feedback13"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q14:</strong> What is 14 + 14?</p>
+        <div class="options">
+            <label><input type="radio" name="q14" value="28"> 28</label><br>
+            <label><input type="radio" name="q14" value="29"> 29</label><br>
+            <label><input type="radio" name="q14" value="27"> 27</label><br>
+        </div>
+        <div class="feedback" id="feedback14"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q15:</strong> What is 15 + 15?</p>
+        <div class="options">
+            <label><input type="radio" name="q15" value="30"> 30</label><br>
+            <label><input type="radio" name="q15" value="31"> 31</label><br>
+            <label><input type="radio" name="q15" value="29"> 29</label><br>
+        </div>
+        <div class="feedback" id="feedback15"></div>
+    </div>
+    
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            for (let i = 1; i <= 15; i++) {
+                const selected = document.querySelector('input[name="q' + i + '"]:checked');
+                const feedback = document.getElementById("feedback" + i);
+                if (selected) {
+                    if (selected.value == i + i) {
+                        feedback.textContent = "Correct!";
+                        feedback.style.color = "green";
+                    } else {
+                        feedback.textContent = "Incorrect. Explanation: The correct answer is " + (i + i) + ", because " + i + " + " + i + " = " + (i + i) + ".";
+                        feedback.style.color = "red";
+                    }
+                } else {
+                    feedback.textContent = "Please select an answer.";
+                }
+            }
+        });
+    </script>
 </body>
 </html>

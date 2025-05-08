@@ -2,17 +2,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AdaptiveLearn</title>
-  <link rel="stylesheet" href="style.css">
+    <title>English Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .question { margin-bottom: 20px; }
+        .option { display: block; margin: 5px 0; font-size: 18px; }
+        .submit-btn { font-size: 20px; padding: 10px 20px; }
+    </style>
+    <script>
+        function submitQuiz() {
+            const feedback = document.getElementById('feedback');
+            const answer = document.querySelector('input[name="q1"]:checked');
+            if (!answer) {
+                feedback.innerText = "Please select an answer.";
+                return;
+            }
+            if (answer.value === "C") {
+                feedback.innerText = "Correct!";
+            } else {
+                feedback.innerText = "Incorrect. Explanation: 'Their' shows possession, which is correct here.";
+            }
+        }
+    </script>
 </head>
 <body>
-  <h1>Welcome to AdaptiveLearn</h1>
-  <p>Select a subject to begin learning:</p>
-  <div class="subjects">
-    <div class="subject-card">Mathematics</div>
-    <div class="subject-card">Natural Sciences</div>
-    <div class="subject-card">English</div>
-  </div>
-  <script src="script.js"></script>
+    <h2>English Quiz</h2>
+    <div class="question">
+        <p>1. Which word correctly completes the sentence: 'They forgot ___ books at home.'</p>
+        <label class="option"><input type="radio" name="q1" value="A"> They're</label>
+        <label class="option"><input type="radio" name="q1" value="B"> There</label>
+        <label class="option"><input type="radio" name="q1" value="C"> Their</label>
+        <label class="option"><input type="radio" name="q1" value="D"> Them</label>
+    </div>
+    <button class="submit-btn" onclick="submitQuiz()">Submit</button>
+    <p id="feedback"></p>
 </body>
 </html>

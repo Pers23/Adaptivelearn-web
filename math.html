@@ -1,52 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Math Quiz</title>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        .question { margin-bottom: 20px; }
-        .submit-btn { font-size: 20px; padding: 10px; }
-        input[type="radio"] { transform: scale(1.5); margin: 10px; }
-        .explanation { color: green; margin-top: 10px; }
+        body { font-family: Arial; padding: 20px; }
+        .question { margin-bottom: 15px; }
+        .explanation { color: green; display: none; }
+        button { padding: 10px 20px; font-size: 16px; margin-top: 20px; }
+        input[type="radio"] { transform: scale(1.5); margin-right: 10px; }
     </style>
+    <script>
+        function submitQuiz(subject) {
+            const questions = document.querySelectorAll('.question');
+            let score = 0;
+            questions.forEach(q => {
+                const correct = q.getAttribute('data-correct');
+                const selected = q.querySelector('input[type=radio]:checked');
+                if (selected && selected.value === correct) {
+                    score++;
+                } else {
+                    q.querySelector('.explanation').style.display = 'block';
+                }
+            });
+            alert("You got " + score + " out of 15 correct!");
+        }
+    </script>
 </head>
 <body>
     <h1>Math Quiz</h1>
-    <form id="quizForm">
-<div class="question">
-<p>What is 7 + 5?</p>
-<label><input type="radio" name="q0" value="10"> 10</label><br>
-<label><input type="radio" name="q0" value="12"> 12</label><br>
-<label><input type="radio" name="q0" value="14"> 14</label><br>
-<label><input type="radio" name="q0" value="15"> 15</label><br>
-</div>
-<div class="question">
-<p>What is 9 x 3?</p>
-<label><input type="radio" name="q1" value="27"> 27</label><br>
-<label><input type="radio" name="q1" value="21"> 21</label><br>
-<label><input type="radio" name="q1" value="18"> 18</label><br>
-<label><input type="radio" name="q1" value="30"> 30</label><br>
-</div>
-
-        <button class="submit-btn" type="button" onclick="checkAnswers()">Submit</button>
-    </form>
-    <div id="results"></div>
-    <script>
-        function checkAnswers() {
-            const answers = ['12', '27'];
-            const explanations = ['7 + 5 equals 12.', '9 times 3 equals 27.'];
-            let output = "";
-            const form = document.forms.quizForm;
-            for (let i = 0; i < answers.length; i++) {
-                const chosen = form["q" + i].value;
-                if (chosen === answers[i]) {
-                    output += "<p>Question " + (i + 1) + ": Correct</p>";
-                } else {
-                    output += "<p>Question " + (i + 1) + ": Incorrect<br><span class='explanation'>" + explanations[i] + "</span></p>";
-                }
-            }
-            document.getElementById("results").innerHTML = output;
-        }
-    </script>
+    
+        <div class="question" data-correct="b">
+            <p><strong>Q1:</strong> This is a sample question 1 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q1" value="a">Option A</label><br>
+            <label><input type="radio" name="q1" value="b">Option B</label><br>
+            <label><input type="radio" name="q1" value="c">Option C</label><br>
+            <label><input type="radio" name="q1" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q2:</strong> This is a sample question 2 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q2" value="a">Option A</label><br>
+            <label><input type="radio" name="q2" value="b">Option B</label><br>
+            <label><input type="radio" name="q2" value="c">Option C</label><br>
+            <label><input type="radio" name="q2" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q3:</strong> This is a sample question 3 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q3" value="a">Option A</label><br>
+            <label><input type="radio" name="q3" value="b">Option B</label><br>
+            <label><input type="radio" name="q3" value="c">Option C</label><br>
+            <label><input type="radio" name="q3" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q4:</strong> This is a sample question 4 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q4" value="a">Option A</label><br>
+            <label><input type="radio" name="q4" value="b">Option B</label><br>
+            <label><input type="radio" name="q4" value="c">Option C</label><br>
+            <label><input type="radio" name="q4" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q5:</strong> This is a sample question 5 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q5" value="a">Option A</label><br>
+            <label><input type="radio" name="q5" value="b">Option B</label><br>
+            <label><input type="radio" name="q5" value="c">Option C</label><br>
+            <label><input type="radio" name="q5" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q6:</strong> This is a sample question 6 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q6" value="a">Option A</label><br>
+            <label><input type="radio" name="q6" value="b">Option B</label><br>
+            <label><input type="radio" name="q6" value="c">Option C</label><br>
+            <label><input type="radio" name="q6" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q7:</strong> This is a sample question 7 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q7" value="a">Option A</label><br>
+            <label><input type="radio" name="q7" value="b">Option B</label><br>
+            <label><input type="radio" name="q7" value="c">Option C</label><br>
+            <label><input type="radio" name="q7" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q8:</strong> This is a sample question 8 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q8" value="a">Option A</label><br>
+            <label><input type="radio" name="q8" value="b">Option B</label><br>
+            <label><input type="radio" name="q8" value="c">Option C</label><br>
+            <label><input type="radio" name="q8" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q9:</strong> This is a sample question 9 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q9" value="a">Option A</label><br>
+            <label><input type="radio" name="q9" value="b">Option B</label><br>
+            <label><input type="radio" name="q9" value="c">Option C</label><br>
+            <label><input type="radio" name="q9" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q10:</strong> This is a sample question 10 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q10" value="a">Option A</label><br>
+            <label><input type="radio" name="q10" value="b">Option B</label><br>
+            <label><input type="radio" name="q10" value="c">Option C</label><br>
+            <label><input type="radio" name="q10" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q11:</strong> This is a sample question 11 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q11" value="a">Option A</label><br>
+            <label><input type="radio" name="q11" value="b">Option B</label><br>
+            <label><input type="radio" name="q11" value="c">Option C</label><br>
+            <label><input type="radio" name="q11" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q12:</strong> This is a sample question 12 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q12" value="a">Option A</label><br>
+            <label><input type="radio" name="q12" value="b">Option B</label><br>
+            <label><input type="radio" name="q12" value="c">Option C</label><br>
+            <label><input type="radio" name="q12" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q13:</strong> This is a sample question 13 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q13" value="a">Option A</label><br>
+            <label><input type="radio" name="q13" value="b">Option B</label><br>
+            <label><input type="radio" name="q13" value="c">Option C</label><br>
+            <label><input type="radio" name="q13" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q14:</strong> This is a sample question 14 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q14" value="a">Option A</label><br>
+            <label><input type="radio" name="q14" value="b">Option B</label><br>
+            <label><input type="radio" name="q14" value="c">Option C</label><br>
+            <label><input type="radio" name="q14" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+        <div class="question" data-correct="b">
+            <p><strong>Q15:</strong> This is a sample question 15 for math. Choose the best answer:</p>
+            <label><input type="radio" name="q15" value="a">Option A</label><br>
+            <label><input type="radio" name="q15" value="b">Option B</label><br>
+            <label><input type="radio" name="q15" value="c">Option C</label><br>
+            <label><input type="radio" name="q15" value="d">Option D</label><br>
+            <p class="explanation">Explanation: Option B is correct because this is a demo explanation.</p>
+        </div>
+        
+    <button onclick="submitQuiz('math')">Submit</button>
 </body>
 </html>

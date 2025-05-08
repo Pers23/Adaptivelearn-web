@@ -1,1 +1,1 @@
-<!-- Placeholder content for script.js -->
+<!-- script.js content for homepage -->

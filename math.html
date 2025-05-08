@@ -1,158 +1,69 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Math Quiz</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 40px; }
-        .question { margin-bottom: 20px; }
-        .submit-btn {
-            font-size: 18px;
-            padding: 15px 30px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        .feedback { color: red; margin-top: 10px; }
-        input[type="radio"] { transform: scale(1.5); margin-right: 10px; }
-    </style>
-    <script>
-        function checkAnswers() {
-            let feedback = document.getElementById('feedback');
-            feedback.innerHTML = "If you made mistakes, review the correct concepts.";
-            return false;
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Math Quiz - AdaptiveLearn</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h1 { color: #2c3e50; }
+    .question { margin-bottom: 20px; }
+    .options label { display: block; margin-left: 20px; font-size: 16px; }
+    .submit-btn { padding: 12px 24px; font-size: 18px; background-color: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; margin-top: 20px; }
+    .feedback { margin-top: 10px; font-weight: bold; }
+  </style>
 </head>
 <body>
-    <h1>Math Quiz</h1>
-    <form onsubmit="return checkAnswers()">
-        
-        <div class="question">
-            <p>Question 1 (Math)</p>
-            <label><input type="radio" name="q1" value="a"> Option A</label><br>
-            <label><input type="radio" name="q1" value="b"> Option B</label><br>
-            <label><input type="radio" name="q1" value="c"> Option C</label><br>
-            <label><input type="radio" name="q1" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 2 (Math)</p>
-            <label><input type="radio" name="q2" value="a"> Option A</label><br>
-            <label><input type="radio" name="q2" value="b"> Option B</label><br>
-            <label><input type="radio" name="q2" value="c"> Option C</label><br>
-            <label><input type="radio" name="q2" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 3 (Math)</p>
-            <label><input type="radio" name="q3" value="a"> Option A</label><br>
-            <label><input type="radio" name="q3" value="b"> Option B</label><br>
-            <label><input type="radio" name="q3" value="c"> Option C</label><br>
-            <label><input type="radio" name="q3" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 4 (Math)</p>
-            <label><input type="radio" name="q4" value="a"> Option A</label><br>
-            <label><input type="radio" name="q4" value="b"> Option B</label><br>
-            <label><input type="radio" name="q4" value="c"> Option C</label><br>
-            <label><input type="radio" name="q4" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 5 (Math)</p>
-            <label><input type="radio" name="q5" value="a"> Option A</label><br>
-            <label><input type="radio" name="q5" value="b"> Option B</label><br>
-            <label><input type="radio" name="q5" value="c"> Option C</label><br>
-            <label><input type="radio" name="q5" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 6 (Math)</p>
-            <label><input type="radio" name="q6" value="a"> Option A</label><br>
-            <label><input type="radio" name="q6" value="b"> Option B</label><br>
-            <label><input type="radio" name="q6" value="c"> Option C</label><br>
-            <label><input type="radio" name="q6" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 7 (Math)</p>
-            <label><input type="radio" name="q7" value="a"> Option A</label><br>
-            <label><input type="radio" name="q7" value="b"> Option B</label><br>
-            <label><input type="radio" name="q7" value="c"> Option C</label><br>
-            <label><input type="radio" name="q7" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 8 (Math)</p>
-            <label><input type="radio" name="q8" value="a"> Option A</label><br>
-            <label><input type="radio" name="q8" value="b"> Option B</label><br>
-            <label><input type="radio" name="q8" value="c"> Option C</label><br>
-            <label><input type="radio" name="q8" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 9 (Math)</p>
-            <label><input type="radio" name="q9" value="a"> Option A</label><br>
-            <label><input type="radio" name="q9" value="b"> Option B</label><br>
-            <label><input type="radio" name="q9" value="c"> Option C</label><br>
-            <label><input type="radio" name="q9" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 10 (Math)</p>
-            <label><input type="radio" name="q10" value="a"> Option A</label><br>
-            <label><input type="radio" name="q10" value="b"> Option B</label><br>
-            <label><input type="radio" name="q10" value="c"> Option C</label><br>
-            <label><input type="radio" name="q10" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 11 (Math)</p>
-            <label><input type="radio" name="q11" value="a"> Option A</label><br>
-            <label><input type="radio" name="q11" value="b"> Option B</label><br>
-            <label><input type="radio" name="q11" value="c"> Option C</label><br>
-            <label><input type="radio" name="q11" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 12 (Math)</p>
-            <label><input type="radio" name="q12" value="a"> Option A</label><br>
-            <label><input type="radio" name="q12" value="b"> Option B</label><br>
-            <label><input type="radio" name="q12" value="c"> Option C</label><br>
-            <label><input type="radio" name="q12" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 13 (Math)</p>
-            <label><input type="radio" name="q13" value="a"> Option A</label><br>
-            <label><input type="radio" name="q13" value="b"> Option B</label><br>
-            <label><input type="radio" name="q13" value="c"> Option C</label><br>
-            <label><input type="radio" name="q13" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 14 (Math)</p>
-            <label><input type="radio" name="q14" value="a"> Option A</label><br>
-            <label><input type="radio" name="q14" value="b"> Option B</label><br>
-            <label><input type="radio" name="q14" value="c"> Option C</label><br>
-            <label><input type="radio" name="q14" value="d"> Option D</label>
-        </div>
-        
-        <div class="question">
-            <p>Question 15 (Math)</p>
-            <label><input type="radio" name="q15" value="a"> Option A</label><br>
-            <label><input type="radio" name="q15" value="b"> Option B</label><br>
-            <label><input type="radio" name="q15" value="c"> Option C</label><br>
-            <label><input type="radio" name="q15" value="d"> Option D</label>
-        </div>
-        
-        <br>
-        <button type="submit" class="submit-btn">Submit</button>
-        <div id="feedback" class="feedback"></div>
-    </form>
+  <h1>Math Quiz</h1>
+  <form id="quizForm">
+    <div class="question">
+      <p>1. What is the value of 3 × 4 + 2?</p>
+      <div class="options">
+        <label><input type="radio" name="q1" value="10" /> 10</label>
+        <label><input type="radio" name="q1" value="14" /> 14</label>
+        <label><input type="radio" name="q1" value="18" /> 18</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>2. Simplify: 5² - 3²</p>
+      <div class="options">
+        <label><input type="radio" name="q2" value="4" /> 4</label>
+        <label><input type="radio" name="q2" value="16" /> 16</label>
+        <label><input type="radio" name="q2" value="25" /> 25</label>
+      </div>
+    </div>
+    <!-- More questions would be added here similarly -->
+    <button class="submit-btn" type="submit">Submit</button>
+    <div id="results" class="feedback"></div>
+  </form>
+  <script>
+    document.getElementById('quizForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let score = 0;
+      let feedback = '';
+
+      const answers = { q1: '14', q2: '16' }; // Correct answers
+      const explanations = {
+        q1: "3 × 4 = 12, then 12 + 2 = 14.",
+        q2: "5² = 25 and 3² = 9, so 25 - 9 = 16."
+      };
+
+      for (const q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected) {
+          if (selected.value === answers[q]) {
+            score++;
+          } else {
+            feedback += `<p><strong>Question ${q.slice(1)}:</strong> Incorrect. ${explanations[q]}</p>`;
+          }
+        } else {
+          feedback += `<p><strong>Question ${q.slice(1)}:</strong> No answer selected.</p>`;
+        }
+      }
+
+      feedback = `<p>You got ${score} out of ${Object.keys(answers).length} correct.</p>` + feedback;
+      document.getElementById('results').innerHTML = feedback;
+    });
+  </script>
 </body>
 </html>

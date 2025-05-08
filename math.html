@@ -1,31 +1,45 @@
-<html><head><title>Math Quiz</title></head><body><h1>Math Quiz</h1><form id="quizForm"><p>1. What is 7 + 6?</p><label><input type="checkbox" name="q0" value="12"> 12</label><br><label><input type="checkbox" name="q0" value="13"> 13</label><br><label><input type="checkbox" name="q0" value="14"> 14</label><br><label><input type="checkbox" name="q0" value="15"> 15</label><br><p>2. What is the square root of 49?</p><label><input type="checkbox" name="q1" value="6"> 6</label><br><label><input type="checkbox" name="q1" value="7"> 7</label><br><label><input type="checkbox" name="q1" value="8"> 8</label><br><label><input type="checkbox" name="q1" value="9"> 9</label><br><p>3. What is 10 * 3?</p><label><input type="checkbox" name="q2" value="20"> 20</label><br><label><input type="checkbox" name="q2" value="30"> 30</label><br><label><input type="checkbox" name="q2" value="40"> 40</label><br><label><input type="checkbox" name="q2" value="50"> 50</label><br><br><button type="button" style="font-size: 20px;" onclick="submitQuiz()">Submit</button></form><div id="results"></div>
-<script>
-function submitQuiz() {
-    let form = document.forms['quizForm'];
-    let results = document.getElementById('results');
-    results.innerHTML = "";
-    let feedback = "";
 
-    let q0Checked = Array.from(form['q0']).filter(cb => cb.checked).map(cb => cb.value);
-    if (!q0Checked.includes("13")) {
-        feedback += "<p><strong>Question 1:</strong> Correct answer is: 13. Explanation: 7 + 6 equals 13.</p>";
-    }
-
-    let q1Checked = Array.from(form['q1']).filter(cb => cb.checked).map(cb => cb.value);
-    if (!q1Checked.includes("7")) {
-        feedback += "<p><strong>Question 2:</strong> Correct answer is: 7. Explanation: The square root of 49 is 7.</p>";
-    }
-
-    let q2Checked = Array.from(form['q2']).filter(cb => cb.checked).map(cb => cb.value);
-    if (!q2Checked.includes("30")) {
-        feedback += "<p><strong>Question 3:</strong> Correct answer is: 30. Explanation: 10 multiplied by 3 equals 30.</p>";
-    }
-
-    if (feedback) {
-        results.innerHTML = "<h2>Feedback:</h2>" + feedback;
-    } else {
-        results.innerHTML = "<h2>All answers correct! Great job!</h2>";
-    }
-}
-</script>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h2 { color: #2c3e50; }
+        .question { margin-bottom: 20px; }
+        .question input[type="radio"] { transform: scale(1.5); margin-right: 10px; }
+        #submitBtn { font-size: 20px; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; }
+        .explanation { color: #e74c3c; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h2>Math Quiz</h2>
+    <form id="quizForm">
+        <div class="question" data-answer="b" data-explanation="The correct answer is B because 5 + 3 equals 8.">
+            <p>1. What is 5 + 3?</p>
+            <label><input type="radio" name="q1" value="a"> 6</label><br>
+            <label><input type="radio" name="q1" value="b"> 8</label><br>
+            <label><input type="radio" name="q1" value="c"> 9</label>
+        </div>
+        <!-- Add 14 more questions similarly -->
+        <button type="button" id="submitBtn" onclick="submitQuiz()">Submit</button>
+    </form>
+    <script>
+        function submitQuiz() {
+            const questions = document.querySelectorAll('.question');
+            questions.forEach(q => {
+                const correct = q.dataset.answer;
+                const explanation = q.dataset.explanation;
+                const selected = q.querySelector('input[type="radio"]:checked');
+                if (!selected || selected.value !== correct) {
+                    const explainEl = document.createElement('div');
+                    explainEl.className = 'explanation';
+                    explainEl.textContent = explanation;
+                    q.appendChild(explainEl);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

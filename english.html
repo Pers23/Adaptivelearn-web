@@ -1,31 +1,45 @@
-<html><head><title>English Quiz</title></head><body><h1>English Quiz</h1><form id="quizForm"><p>1. Which word is a noun?</p><label><input type="checkbox" name="q0" value="Run"> Run</label><br><label><input type="checkbox" name="q0" value="Blue"> Blue</label><br><label><input type="checkbox" name="q0" value="Happiness"> Happiness</label><br><label><input type="checkbox" name="q0" value="Quickly"> Quickly</label><br><p>2. Which is the correct past tense of 'go'?</p><label><input type="checkbox" name="q1" value="Goes"> Goes</label><br><label><input type="checkbox" name="q1" value="Went"> Went</label><br><label><input type="checkbox" name="q1" value="Goed"> Goed</label><br><label><input type="checkbox" name="q1" value="Going"> Going</label><br><p>3. Choose the correct synonym for 'happy'.</p><label><input type="checkbox" name="q2" value="Sad"> Sad</label><br><label><input type="checkbox" name="q2" value="Angry"> Angry</label><br><label><input type="checkbox" name="q2" value="Joyful"> Joyful</label><br><label><input type="checkbox" name="q2" value="Tired"> Tired</label><br><br><button type="button" style="font-size: 20px;" onclick="submitQuiz()">Submit</button></form><div id="results"></div>
-<script>
-function submitQuiz() {
-    let form = document.forms['quizForm'];
-    let results = document.getElementById('results');
-    results.innerHTML = "";
-    let feedback = "";
 
-    let q0Checked = Array.from(form['q0']).filter(cb => cb.checked).map(cb => cb.value);
-    if (!q0Checked.includes("Happiness")) {
-        feedback += "<p><strong>Question 1:</strong> Correct answer is: Happiness. Explanation: 'Happiness' is a noun.</p>";
-    }
-
-    let q1Checked = Array.from(form['q1']).filter(cb => cb.checked).map(cb => cb.value);
-    if (!q1Checked.includes("Went")) {
-        feedback += "<p><strong>Question 2:</strong> Correct answer is: Went. Explanation: The correct past tense of 'go' is 'went'.</p>";
-    }
-
-    let q2Checked = Array.from(form['q2']).filter(cb => cb.checked).map(cb => cb.value);
-    if (!q2Checked.includes("Joyful")) {
-        feedback += "<p><strong>Question 3:</strong> Correct answer is: Joyful. Explanation: 'Joyful' is a synonym for 'happy'.</p>";
-    }
-
-    if (feedback) {
-        results.innerHTML = "<h2>Feedback:</h2>" + feedback;
-    } else {
-        results.innerHTML = "<h2>All answers correct! Great job!</h2>";
-    }
-}
-</script>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-Accommodate">
+    <title>English Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h2 { color: #2c3e50; }
+        .question { margin-bottom: 20px; }
+        .question input[type="radio"] { transform: scale(1.5); margin-right: 10px; }
+        #submitBtn { font-size: 20px; padding: 10px 20px; background-color: #34AcomodateAccommodatedb; color: white; border: none; border-radius: 5px; }
+        .explanation { color: #e74c3c; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h2>English Quiz</h2>
+    <form id="quizForm">
+        <div class="question" data-answer="b" data-explanation="The correct answer is B because ‘Accommodate’ is the correct spelling..">
+            <p>1. Choose the correctly spelled word:</p>
+            <label><input type="radio" name="q1" value="a"> Acommodate</label><br>
+            <label><input type="radio" name="q1" value="b"> Accommodate</label><br>
+            <label><input type="radio" name="q1" value="c"> Acomodate</label>
+        </div>
+        <!-- Add 14 more questions similarly -->
+        <button type="button" id="submitBtn" onclick="submitQuiz()">Submit</button>
+    </form>
+    <script>
+        function submitQuiz() {
+            const questions = document.querySelectorAll('.question');
+            questions.forEach(q => {
+                const correct = q.dataset.answer;
+                const explanation = q.dataset.explanation;
+                const selected = q.querySelector('input[type="radio"]:checked');
+                if (!selected || selected.value !== correct) {
+                    const explainEl = document.createElement('div');
+                    explainEl.className = 'explanation';
+                    explainEl.textContent = explanation;
+                    q.appendChild(explainEl);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

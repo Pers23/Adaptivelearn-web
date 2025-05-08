@@ -9,7 +9,14 @@ const questions = [
   { subject: "Physical Sciences", text: "What is H2O commonly known as?" },
   { subject: "Technology", text: "What does 'CPU' stand for?" },
   { subject: "History", text: "Who was the first president of South Africa?" },
-  { subject: "Languages", text: "Translate 'hello' to Spanish." }
+  { subject: "Languages", text: "Translate 'hello' to Spanish." },
+  { subject: "Economics", text: "What is the term for an increase in general price levels?" },
+  { subject: "Accounting", text: "What is the accounting equation?" },
+  { subject: "Business Studies", text: "What is an entrepreneur?" },
+  { subject: "Religious Studies", text: "Who founded Christianity?" },
+  { subject: "Art", text: "Who painted the Mona Lisa?" },
+  { subject: "Music", text: "What is the musical symbol for a sharp note?" },
+  { subject: "Agricultural Science", text: "What is crop rotation?" }
 ];
 
 export default function Assessment() {

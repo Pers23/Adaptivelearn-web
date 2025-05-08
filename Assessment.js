@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 
 const questions = [
   { subject: "Math", text: "What is 8 × 7?" },
@@ -13,17 +13,41 @@ const questions = [
 ];
 
 export default function Assessment() {
+  const [checked, setChecked] = useState(Array(questions.length).fill(false));
+
+  const handleCheck = (index) => {
+    const updated = [...checked];
+    updated[index] = !updated[index];
+    setChecked(updated);
+  };
+
+  const handleSubmit = () => {
+    const results = questions.filter((_, idx) => checked[idx]);
+    alert("You answered: " + results.length + " question(s).");
+  };
+
   return (
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4">Assessment Questions</h2>
       {questions.map((q, index) => (
         <div key={index} className="mb-3">
           <label className="flex items-center space-x-3">
-            <input type="checkbox" className="w-6 h-6" />
+            <input
+              type="checkbox"
+              className="w-6 h-6"
+              checked={checked[index]}
+              onChange={() => handleCheck(index)}
+            />
             <span><strong>{q.subject}:</strong> {q.text}</span>
           </label>
         </div>
       ))}
+      <button
+        onClick={handleSubmit}
+        className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+      >
+        Submit
+      </button>
     </div>
   );
 }

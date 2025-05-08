@@ -1,57 +1,206 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>English - AdaptiveLearn</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>English Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .question { margin-bottom: 20px; }
+        .answers input[type="radio"] { transform: scale(1.5); margin-right: 10px; }
+        button { padding: 15px 30px; font-size: 16px; margin-top: 20px; }
+        .feedback { margin-top: 10px; color: green; }
+        .explanation { color: #555; }
+    </style>
 </head>
 <body>
-  <h1>English</h1>
-  <p>Lesson: Parts of Speech</p>
-  <p>Words in English are categorized by their role in a sentence. Examples include nouns, verbs, and adjectives.</p>
+    <h1>English Quiz</h1>
+    <form id="quizForm">
 
-  <h2>Quick Quiz</h2>
-  <form id="quiz-form">
-    <p>1. Which word is a noun?</p>
-    <input type="radio" name="q1" value="a"> Run<br>
-    <input type="radio" name="q1" value="b"> Apple<br>
-    <input type="radio" name="q1" value="c"> Quickly<br>
+        <div class="question">
+            <p><strong>Question 1:</strong> This is a sample english question 1?</p>
+            <div class="answers">
+                <label><input type="radio" name="q1" value="a"> Option A</label><br>
+                <label><input type="radio" name="q1" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q1" value="c"> Option C</label><br>
+                <label><input type="radio" name="q1" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback1"></div>
+        </div>
 
-    <p>2. Which word is a verb?</p>
-    <input type="radio" name="q2" value="a"> Book<br>
-    <input type="radio" name="q2" value="b"> Blue<br>
-    <input type="radio" name="q2" value="c"> Jump<br>
+        <div class="question">
+            <p><strong>Question 2:</strong> This is a sample english question 2?</p>
+            <div class="answers">
+                <label><input type="radio" name="q2" value="a"> Option A</label><br>
+                <label><input type="radio" name="q2" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q2" value="c"> Option C</label><br>
+                <label><input type="radio" name="q2" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback2"></div>
+        </div>
 
-    <p>3. Which word is an adjective?</p>
-    <input type="radio" name="q3" value="a"> Soft<br>
-    <input type="radio" name="q3" value="b"> Cat<br>
-    <input type="radio" name="q3" value="c"> Dance<br><br>
+        <div class="question">
+            <p><strong>Question 3:</strong> This is a sample english question 3?</p>
+            <div class="answers">
+                <label><input type="radio" name="q3" value="a"> Option A</label><br>
+                <label><input type="radio" name="q3" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q3" value="c"> Option C</label><br>
+                <label><input type="radio" name="q3" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback3"></div>
+        </div>
 
-    <button type="button" onclick="submitQuiz()">Submit</button>
-  </form>
+        <div class="question">
+            <p><strong>Question 4:</strong> This is a sample english question 4?</p>
+            <div class="answers">
+                <label><input type="radio" name="q4" value="a"> Option A</label><br>
+                <label><input type="radio" name="q4" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q4" value="c"> Option C</label><br>
+                <label><input type="radio" name="q4" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback4"></div>
+        </div>
 
-  <div id="results" style="margin-top:20px;"></div>
-  <a href="index.html">Back to Home</a>
-  <script>
+        <div class="question">
+            <p><strong>Question 5:</strong> This is a sample english question 5?</p>
+            <div class="answers">
+                <label><input type="radio" name="q5" value="a"> Option A</label><br>
+                <label><input type="radio" name="q5" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q5" value="c"> Option C</label><br>
+                <label><input type="radio" name="q5" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback5"></div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 6:</strong> This is a sample english question 6?</p>
+            <div class="answers">
+                <label><input type="radio" name="q6" value="a"> Option A</label><br>
+                <label><input type="radio" name="q6" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q6" value="c"> Option C</label><br>
+                <label><input type="radio" name="q6" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback6"></div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 7:</strong> This is a sample english question 7?</p>
+            <div class="answers">
+                <label><input type="radio" name="q7" value="a"> Option A</label><br>
+                <label><input type="radio" name="q7" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q7" value="c"> Option C</label><br>
+                <label><input type="radio" name="q7" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback7"></div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 8:</strong> This is a sample english question 8?</p>
+            <div class="answers">
+                <label><input type="radio" name="q8" value="a"> Option A</label><br>
+                <label><input type="radio" name="q8" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q8" value="c"> Option C</label><br>
+                <label><input type="radio" name="q8" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback8"></div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 9:</strong> This is a sample english question 9?</p>
+            <div class="answers">
+                <label><input type="radio" name="q9" value="a"> Option A</label><br>
+                <label><input type="radio" name="q9" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q9" value="c"> Option C</label><br>
+                <label><input type="radio" name="q9" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback9"></div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 10:</strong> This is a sample english question 10?</p>
+            <div class="answers">
+                <label><input type="radio" name="q10" value="a"> Option A</label><br>
+                <label><input type="radio" name="q10" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q10" value="c"> Option C</label><br>
+                <label><input type="radio" name="q10" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback10"></div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 11:</strong> This is a sample english question 11?</p>
+            <div class="answers">
+                <label><input type="radio" name="q11" value="a"> Option A</label><br>
+                <label><input type="radio" name="q11" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q11" value="c"> Option C</label><br>
+                <label><input type="radio" name="q11" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback11"></div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 12:</strong> This is a sample english question 12?</p>
+            <div class="answers">
+                <label><input type="radio" name="q12" value="a"> Option A</label><br>
+                <label><input type="radio" name="q12" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q12" value="c"> Option C</label><br>
+                <label><input type="radio" name="q12" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback12"></div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 13:</strong> This is a sample english question 13?</p>
+            <div class="answers">
+                <label><input type="radio" name="q13" value="a"> Option A</label><br>
+                <label><input type="radio" name="q13" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q13" value="c"> Option C</label><br>
+                <label><input type="radio" name="q13" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback13"></div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 14:</strong> This is a sample english question 14?</p>
+            <div class="answers">
+                <label><input type="radio" name="q14" value="a"> Option A</label><br>
+                <label><input type="radio" name="q14" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q14" value="c"> Option C</label><br>
+                <label><input type="radio" name="q14" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback14"></div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 15:</strong> This is a sample english question 15?</p>
+            <div class="answers">
+                <label><input type="radio" name="q15" value="a"> Option A</label><br>
+                <label><input type="radio" name="q15" value="b"> Option B (Correct)</label><br>
+                <label><input type="radio" name="q15" value="c"> Option C</label><br>
+                <label><input type="radio" name="q15" value="d"> Option D</label><br>
+            </div>
+            <div class="feedback" id="feedback15"></div>
+        </div>
+
+        <button type="button" onclick="submitQuiz()">Submit</button>
+    </form>
+
+    <script>
     function submitQuiz() {
-      const answers = { q1: 'b', q2: 'c', q3: 'a' };
-      let score = 0;
-      for (let q in answers) {
-        const selected = document.querySelector(`input[name="${q}"]:checked`);
-        if (selected && selected.value === answers[q]) {
-          score++;
+        for (let i = 1; i <= 15; i++) {
+            let correct = "b";
+            let options = document.getElementsByName("q" + i);
+            let selected = null;
+            for (let opt of options) {
+                if (opt.checked) selected = opt.value;
+            }
+            let feedback = document.getElementById("feedback" + i);
+            if (selected === correct) {
+                feedback.innerHTML = "Correct!";
+            } else {
+                feedback.innerHTML = "Incorrect. Correct answer is B. <span class='explanation'>Because it’s the most accurate option.</span>";
+            }
         }
-      }
-      let resultText = "Your score: " + score + "/3<br>";
-      if (score === 3) {
-        resultText += "<strong>Excellent! You earned an English Star badge!</strong><br><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Gold_Star.svg/1200px-Gold_Star.svg.png' width='50'>";
-      } else if (score === 2) {
-        resultText += "Good job! Keep practicing.";
-      } else {
-        resultText += "Keep trying, you'll get there!";
-      }
-      document.getElementById("results").innerHTML = resultText;
     }
-  </script>
+    </script>
 </body>
 </html>

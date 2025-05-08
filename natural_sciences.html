@@ -1,31 +1,45 @@
-<html><head><title>Natural_sciences Quiz</title></head><body><h1>Natural_sciences Quiz</h1><form id="quizForm"><p>1. Which planet is known as the Red Planet?</p><label><input type="checkbox" name="q0" value="Earth"> Earth</label><br><label><input type="checkbox" name="q0" value="Mars"> Mars</label><br><label><input type="checkbox" name="q0" value="Venus"> Venus</label><br><label><input type="checkbox" name="q0" value="Jupiter"> Jupiter</label><br><p>2. What gas do plants use in photosynthesis?</p><label><input type="checkbox" name="q1" value="Oxygen"> Oxygen</label><br><label><input type="checkbox" name="q1" value="Hydrogen"> Hydrogen</label><br><label><input type="checkbox" name="q1" value="Carbon Dioxide"> Carbon Dioxide</label><br><label><input type="checkbox" name="q1" value="Nitrogen"> Nitrogen</label><br><p>3. What is H2O?</p><label><input type="checkbox" name="q2" value="Salt"> Salt</label><br><label><input type="checkbox" name="q2" value="Water"> Water</label><br><label><input type="checkbox" name="q2" value="Sugar"> Sugar</label><br><label><input type="checkbox" name="q2" value="Oxygen"> Oxygen</label><br><br><button type="button" style="font-size: 20px;" onclick="submitQuiz()">Submit</button></form><div id="results"></div>
-<script>
-function submitQuiz() {
-    let form = document.forms['quizForm'];
-    let results = document.getElementById('results');
-    results.innerHTML = "";
-    let feedback = "";
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Natural_Sciences Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .question { margin-bottom: 20px; }
+        .submit-btn { font-size: 20px; padding: 10px; }
+        input[type="radio"] { transform: scale(1.5); margin: 10px; }
+        .explanation { color: green; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Natural_Sciences Quiz</h1>
+    <form id="quizForm">
+<div class="question">
+<p>What gas do plants use for photosynthesis?</p>
+<label><input type="radio" name="q0" value="Oxygen"> Oxygen</label><br>
+<label><input type="radio" name="q0" value="Hydrogen"> Hydrogen</label><br>
+<label><input type="radio" name="q0" value="Carbon Dioxide"> Carbon Dioxide</label><br>
+<label><input type="radio" name="q0" value="Nitrogen"> Nitrogen</label><br>
+</div>
 
-    let q0Checked = Array.from(form['q0']).filter(cb => cb.checked).map(cb => cb.value);
-    if (!q0Checked.includes("Mars")) {
-        feedback += "<p><strong>Question 1:</strong> Correct answer is: Mars. Explanation: Mars is called the Red Planet.</p>";
-    }
-
-    let q1Checked = Array.from(form['q1']).filter(cb => cb.checked).map(cb => cb.value);
-    if (!q1Checked.includes("Carbon Dioxide")) {
-        feedback += "<p><strong>Question 2:</strong> Correct answer is: Carbon Dioxide. Explanation: Plants use carbon dioxide for photosynthesis.</p>";
-    }
-
-    let q2Checked = Array.from(form['q2']).filter(cb => cb.checked).map(cb => cb.value);
-    if (!q2Checked.includes("Water")) {
-        feedback += "<p><strong>Question 3:</strong> Correct answer is: Water. Explanation: H2O is the chemical formula for water.</p>";
-    }
-
-    if (feedback) {
-        results.innerHTML = "<h2>Feedback:</h2>" + feedback;
-    } else {
-        results.innerHTML = "<h2>All answers correct! Great job!</h2>";
-    }
-}
-</script>
-</body></html>
+        <button class="submit-btn" type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+    <div id="results"></div>
+    <script>
+        function checkAnswers() {
+            const answers = ['Carbon Dioxide'];
+            const explanations = ['Plants use carbon dioxide during photosynthesis.'];
+            let output = "";
+            const form = document.forms.quizForm;
+            for (let i = 0; i < answers.length; i++) {
+                const chosen = form["q" + i].value;
+                if (chosen === answers[i]) {
+                    output += "<p>Question " + (i + 1) + ": Correct</p>";
+                } else {
+                    output += "<p>Question " + (i + 1) + ": Incorrect<br><span class='explanation'>" + explanations[i] + "</span></p>";
+                }
+            }
+            document.getElementById("results").innerHTML = output;
+        }
+    </script>
+</body>
+</html>

@@ -1,44 +1,51 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Math Quiz</title>
     <style>
         body { font-family: Arial, sans-serif; padding: 20px; }
-        h2 { color: #2c3e50; }
         .question { margin-bottom: 20px; }
-        .question input[type="radio"] { transform: scale(1.5); margin-right: 10px; }
-        #submitBtn { font-size: 20px; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; }
-        .explanation { color: #e74c3c; margin-top: 5px; }
+        .submit-btn { font-size: 20px; padding: 10px; }
+        input[type="radio"] { transform: scale(1.5); margin: 10px; }
+        .explanation { color: green; margin-top: 10px; }
     </style>
 </head>
 <body>
-    <h2>Math Quiz</h2>
+    <h1>Math Quiz</h1>
     <form id="quizForm">
-        <div class="question" data-answer="b" data-explanation="The correct answer is B because 5 + 3 equals 8.">
-            <p>1. What is 5 + 3?</p>
-            <label><input type="radio" name="q1" value="a"> 6</label><br>
-            <label><input type="radio" name="q1" value="b"> 8</label><br>
-            <label><input type="radio" name="q1" value="c"> 9</label>
-        </div>
-        <!-- Add 14 more questions similarly -->
-        <button type="button" id="submitBtn" onclick="submitQuiz()">Submit</button>
+<div class="question">
+<p>What is 7 + 5?</p>
+<label><input type="radio" name="q0" value="10"> 10</label><br>
+<label><input type="radio" name="q0" value="12"> 12</label><br>
+<label><input type="radio" name="q0" value="14"> 14</label><br>
+<label><input type="radio" name="q0" value="15"> 15</label><br>
+</div>
+<div class="question">
+<p>What is 9 x 3?</p>
+<label><input type="radio" name="q1" value="27"> 27</label><br>
+<label><input type="radio" name="q1" value="21"> 21</label><br>
+<label><input type="radio" name="q1" value="18"> 18</label><br>
+<label><input type="radio" name="q1" value="30"> 30</label><br>
+</div>
+
+        <button class="submit-btn" type="button" onclick="checkAnswers()">Submit</button>
     </form>
+    <div id="results"></div>
     <script>
-        function submitQuiz() {
-            const questions = document.querySelectorAll('.question');
-            questions.forEach(q => {
-                const correct = q.dataset.answer;
-                const explanation = q.dataset.explanation;
-                const selected = q.querySelector('input[type="radio"]:checked');
-                if (!selected || selected.value !== correct) {
-                    const explainEl = document.createElement('div');
-                    explainEl.className = 'explanation';
-                    explainEl.textContent = explanation;
-                    q.appendChild(explainEl);
+        function checkAnswers() {
+            const answers = ['12', '27'];
+            const explanations = ['7 + 5 equals 12.', '9 times 3 equals 27.'];
+            let output = "";
+            const form = document.forms.quizForm;
+            for (let i = 0; i < answers.length; i++) {
+                const chosen = form["q" + i].value;
+                if (chosen === answers[i]) {
+                    output += "<p>Question " + (i + 1) + ": Correct</p>";
+                } else {
+                    output += "<p>Question " + (i + 1) + ": Incorrect<br><span class='explanation'>" + explanations[i] + "</span></p>";
                 }
-            });
+            }
+            document.getElementById("results").innerHTML = output;
         }
     </script>
 </body>

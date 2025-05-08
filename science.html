@@ -1,216 +1,40 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Science Quiz</title>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; }
         .question { margin-bottom: 20px; }
-        .answers input[type="radio"] { transform: scale(1.5); margin-right: 10px; }
-        button { padding: 15px 30px; font-size: 16px; margin-top: 20px; }
-        .feedback { margin-top: 10px; color: green; }
-        .explanation { color: #555; }
+        .explanation { color: green; }
+        .submit-btn { font-size: 18px; padding: 10px 20px; margin-top: 20px; }
+        label { display: block; margin-bottom: 5px; }
+        input[type="radio"] { transform: scale(1.5); margin-right: 10px; }
     </style>
 </head>
 <body>
     <h1>Science Quiz</h1>
     <form id="quizForm">
-
-        <div class="question">
-            <p><strong>Question 1:</strong> This is a sample science question 1?</p>
-            <div class="answers">
-                <label><input type="radio" name="q1" value="a"> Option A</label><br>
-                <label><input type="radio" name="q1" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q1" value="c"> Option C</label><br>
-                <label><input type="radio" name="q1" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback1"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 2:</strong> This is a sample science question 2?</p>
-            <div class="answers">
-                <label><input type="radio" name="q2" value="a"> Option A</label><br>
-                <label><input type="radio" name="q2" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q2" value="c"> Option C</label><br>
-                <label><input type="radio" name="q2" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback2"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 3:</strong> This is a sample science question 3?</p>
-            <div class="answers">
-                <label><input type="radio" name="q3" value="a"> Option A</label><br>
-                <label><input type="radio" name="q3" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q3" value="c"> Option C</label><br>
-                <label><input type="radio" name="q3" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback3"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 4:</strong> This is a sample science question 4?</p>
-            <div class="answers">
-                <label><input type="radio" name="q4" value="a"> Option A</label><br>
-                <label><input type="radio" name="q4" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q4" value="c"> Option C</label><br>
-                <label><input type="radio" name="q4" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback4"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 5:</strong> This is a sample science question 5?</p>
-            <div class="answers">
-                <label><input type="radio" name="q5" value="a"> Option A</label><br>
-                <label><input type="radio" name="q5" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q5" value="c"> Option C</label><br>
-                <label><input type="radio" name="q5" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback5"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 6:</strong> This is a sample science question 6?</p>
-            <div class="answers">
-                <label><input type="radio" name="q6" value="a"> Option A</label><br>
-                <label><input type="radio" name="q6" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q6" value="c"> Option C</label><br>
-                <label><input type="radio" name="q6" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback6"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 7:</strong> This is a sample science question 7?</p>
-            <div class="answers">
-                <label><input type="radio" name="q7" value="a"> Option A</label><br>
-                <label><input type="radio" name="q7" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q7" value="c"> Option C</label><br>
-                <label><input type="radio" name="q7" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback7"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 8:</strong> This is a sample science question 8?</p>
-            <div class="answers">
-                <label><input type="radio" name="q8" value="a"> Option A</label><br>
-                <label><input type="radio" name="q8" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q8" value="c"> Option C</label><br>
-                <label><input type="radio" name="q8" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback8"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 9:</strong> This is a sample science question 9?</p>
-            <div class="answers">
-                <label><input type="radio" name="q9" value="a"> Option A</label><br>
-                <label><input type="radio" name="q9" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q9" value="c"> Option C</label><br>
-                <label><input type="radio" name="q9" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback9"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 10:</strong> This is a sample science question 10?</p>
-            <div class="answers">
-                <label><input type="radio" name="q10" value="a"> Option A</label><br>
-                <label><input type="radio" name="q10" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q10" value="c"> Option C</label><br>
-                <label><input type="radio" name="q10" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback10"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 11:</strong> This is a sample science question 11?</p>
-            <div class="answers">
-                <label><input type="radio" name="q11" value="a"> Option A</label><br>
-                <label><input type="radio" name="q11" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q11" value="c"> Option C</label><br>
-                <label><input type="radio" name="q11" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback11"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 12:</strong> This is a sample science question 12?</p>
-            <div class="answers">
-                <label><input type="radio" name="q12" value="a"> Option A</label><br>
-                <label><input type="radio" name="q12" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q12" value="c"> Option C</label><br>
-                <label><input type="radio" name="q12" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback12"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 13:</strong> This is a sample science question 13?</p>
-            <div class="answers">
-                <label><input type="radio" name="q13" value="a"> Option A</label><br>
-                <label><input type="radio" name="q13" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q13" value="c"> Option C</label><br>
-                <label><input type="radio" name="q13" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback13"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 14:</strong> This is a sample science question 14?</p>
-            <div class="answers">
-                <label><input type="radio" name="q14" value="a"> Option A</label><br>
-                <label><input type="radio" name="q14" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q14" value="c"> Option C</label><br>
-                <label><input type="radio" name="q14" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback14"></div>
-        </div>
-
-        <div class="question">
-            <p><strong>Question 15:</strong> This is a sample science question 15?</p>
-            <div class="answers">
-                <label><input type="radio" name="q15" value="a"> Option A</label><br>
-                <label><input type="radio" name="q15" value="b"> Option B (Correct)</label><br>
-                <label><input type="radio" name="q15" value="c"> Option C</label><br>
-                <label><input type="radio" name="q15" value="d"> Option D</label><br>
-            </div>
-            <div class="feedback" id="feedback15"></div>
-        </div>
-
-        <button type="button" onclick="submitQuiz()">Submit</button>
+    <div class='question'><p>1. What is the primary source of energy for the Earth?</p><label><input type="radio" name="q0" value="0"> The Moon</label><label><input type="radio" name="q0" value="1"> The Sun</label><label><input type="radio" name="q0" value="2"> Volcanoes</label><label><input type="radio" name="q0" value="3"> Wind</label><div class='explanation' id='exp0' style='display:none;'>The Sun provides the Earth with light and heat, making it the primary source of energy.</div></div><div class='question'><p>2. What gas do plants use for photosynthesis?</p><label><input type="radio" name="q1" value="0"> Oxygen</label><label><input type="radio" name="q1" value="1"> Hydrogen</label><label><input type="radio" name="q1" value="2"> Carbon Dioxide</label><label><input type="radio" name="q1" value="3"> Nitrogen</label><div class='explanation' id='exp1' style='display:none;'>Plants take in carbon dioxide from the air and use it to make food through photosynthesis.</div></div><div class='question'><p>3. What organ pumps blood throughout the body?</p><label><input type="radio" name="q2" value="0"> Brain</label><label><input type="radio" name="q2" value="1"> Liver</label><label><input type="radio" name="q2" value="2"> Heart</label><label><input type="radio" name="q2" value="3"> Lungs</label><div class='explanation' id='exp2' style='display:none;'>The heart is a muscular organ that pumps blood throughout the circulatory system.</div></div><div class='question'><p>4. Which planet is known as the Red Planet?</p><label><input type="radio" name="q3" value="0"> Venus</label><label><input type="radio" name="q3" value="1"> Mars</label><label><input type="radio" name="q3" value="2"> Jupiter</label><label><input type="radio" name="q3" value="3"> Saturn</label><div class='explanation' id='exp3' style='display:none;'>Mars is often called the Red Planet due to its reddish appearance caused by iron oxide.</div></div><div class='question'><p>5. What is the boiling point of water at sea level?</p><label><input type="radio" name="q4" value="0"> 50°C</label><label><input type="radio" name="q4" value="1"> 100°C</label><label><input type="radio" name="q4" value="2"> 150°C</label><label><input type="radio" name="q4" value="3"> 200°C</label><div class='explanation' id='exp4' style='display:none;'>At sea level, water boils at 100°C.</div></div><div class='question'><p>6. Which of these is a mammal?</p><label><input type="radio" name="q5" value="0"> Frog</label><label><input type="radio" name="q5" value="1"> Snake</label><label><input type="radio" name="q5" value="2"> Dolphin</label><label><input type="radio" name="q5" value="3"> Shark</label><div class='explanation' id='exp5' style='display:none;'>Dolphins are mammals because they breathe air and give birth to live young.</div></div><div class='question'><p>7. What part of the plant conducts photosynthesis?</p><label><input type="radio" name="q6" value="0"> Roots</label><label><input type="radio" name="q6" value="1"> Stems</label><label><input type="radio" name="q6" value="2"> Leaves</label><label><input type="radio" name="q6" value="3"> Flowers</label><div class='explanation' id='exp6' style='display:none;'>Leaves contain chlorophyll which is used to capture sunlight for photosynthesis.</div></div><div class='question'><p>8. Which system in the body is responsible for transporting blood?</p><label><input type="radio" name="q7" value="0"> Digestive system</label><label><input type="radio" name="q7" value="1"> Circulatory system</label><label><input type="radio" name="q7" value="2"> Nervous system</label><label><input type="radio" name="q7" value="3"> Respiratory system</label><div class='explanation' id='exp7' style='display:none;'>The circulatory system moves blood through the heart, arteries, and veins.</div></div><div class='question'><p>9. Which state of matter has no fixed shape but has a fixed volume?</p><label><input type="radio" name="q8" value="0"> Solid</label><label><input type="radio" name="q8" value="1"> Liquid</label><label><input type="radio" name="q8" value="2"> Gas</label><label><input type="radio" name="q8" value="3"> Plasma</label><div class='explanation' id='exp8' style='display:none;'>Liquids have a definite volume but take the shape of their container.</div></div><div class='question'><p>10. Which force pulls objects toward the Earth?</p><label><input type="radio" name="q9" value="0"> Magnetism</label><label><input type="radio" name="q9" value="1"> Gravity</label><label><input type="radio" name="q9" value="2"> Friction</label><label><input type="radio" name="q9" value="3"> Electricity</label><div class='explanation' id='exp9' style='display:none;'>Gravity is the force that attracts objects towards the center of the Earth.</div></div><div class='question'><p>11. What is the main function of the lungs?</p><label><input type="radio" name="q10" value="0"> To digest food</label><label><input type="radio" name="q10" value="1"> To pump blood</label><label><input type="radio" name="q10" value="2"> To exchange gases</label><label><input type="radio" name="q10" value="3"> To control movement</label><div class='explanation' id='exp10' style='display:none;'>The lungs exchange oxygen and carbon dioxide during breathing.</div></div><div class='question'><p>12. What kind of energy does a moving object have?</p><label><input type="radio" name="q11" value="0"> Potential energy</label><label><input type="radio" name="q11" value="1"> Chemical energy</label><label><input type="radio" name="q11" value="2"> Kinetic energy</label><label><input type="radio" name="q11" value="3"> Thermal energy</label><div class='explanation' id='exp11' style='display:none;'>Kinetic energy is the energy of motion.</div></div><div class='question'><p>13. What type of rock is formed from lava?</p><label><input type="radio" name="q12" value="0"> Sedimentary</label><label><input type="radio" name="q12" value="1"> Metamorphic</label><label><input type="radio" name="q12" value="2"> Igneous</label><label><input type="radio" name="q12" value="3"> Fossil</label><div class='explanation' id='exp12' style='display:none;'>Igneous rocks form when lava or magma cools and solidifies.</div></div><div class='question'><p>14. What do we call animals that eat only plants?</p><label><input type="radio" name="q13" value="0"> Carnivores</label><label><input type="radio" name="q13" value="1"> Omnivores</label><label><input type="radio" name="q13" value="2"> Herbivores</label><label><input type="radio" name="q13" value="3"> Insectivores</label><div class='explanation' id='exp13' style='display:none;'>Herbivores eat only plants.</div></div><div class='question'><p>15. Which natural phenomenon is measured with the Richter scale?</p><label><input type="radio" name="q14" value="0"> Rainfall</label><label><input type="radio" name="q14" value="1"> Tornado strength</label><label><input type="radio" name="q14" value="2"> Temperature</label><label><input type="radio" name="q14" value="3"> Earthquake magnitude</label><div class='explanation' id='exp14' style='display:none;'>The Richter scale measures the magnitude of earthquakes.</div></div>
+        <button class="submit-btn" type="button" onclick="checkAnswers()">Submit</button>
     </form>
-
     <script>
-    let attemptCounts = Array(16).fill(0);
-    function submitQuiz() {
-        for (let i = 1; i <= 15; i++) {
-            let correct = "b";
-            let options = document.getElementsByName("q" + i);
-            let selected = null;
-            for (let opt of options) {
-                if (opt.checked) selected = opt.value;
-            }
-            let feedback = document.getElementById("feedback" + i);
-            if (!selected) {
-                feedback.innerHTML = "Please select an answer.";
-                continue;
-            }
-            if (selected === correct) {
-                feedback.innerHTML = "Correct!";
-            } else {
-                attemptCounts[i] += 1;
-                if (attemptCounts[i] >= 2) {
-                    feedback.innerHTML = "Incorrect again. Correct answer is B. <span class='explanation'>Because it’s the most accurate option.</span>";
-                } else {
-                    feedback.innerHTML = "Incorrect. Try again.";
+        const answers = [1,2,2,1,1,2,2,1,1,1,2,2,2,2,3];
+        function checkAnswers() {
+            let form = document.forms["quizForm"];
+            for (let i = 0; i < answers.length; i++) {
+                let q = form["q" + i];
+                let selected = -1;
+                for (let j = 0; j < q.length; j++) {
+                    if (q[j].checked) selected = parseInt(q[j].value);
+                }
+                if (selected !== answers[i]) {
+                    document.getElementById("exp" + i).style.display = "block";
                 }
             }
+            alert("Quiz submitted! Check explanations for incorrect answers.");
         }
-    }
     </script>
 </body>
 </html>

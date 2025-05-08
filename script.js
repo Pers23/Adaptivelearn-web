@@ -1,1 +1,1 @@
-console.log('AdaptiveLearn loaded');
+<!-- script.js content for homepage -->

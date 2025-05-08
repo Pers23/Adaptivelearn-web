@@ -185,6 +185,7 @@
     </form>
 
     <script>
+    let attemptCounts = Array(16).fill(0);
     function submitQuiz() {
         for (let i = 1; i <= 15; i++) {
             let correct = "b";
@@ -194,10 +195,19 @@
                 if (opt.checked) selected = opt.value;
             }
             let feedback = document.getElementById("feedback" + i);
+            if (!selected) {
+                feedback.innerHTML = "Please select an answer.";
+                continue;
+            }
             if (selected === correct) {
                 feedback.innerHTML = "Correct!";
             } else {
-                feedback.innerHTML = "Incorrect. Correct answer is B. <span class='explanation'>Because it’s the most accurate option.</span>";
+                attemptCounts[i] += 1;
+                if (attemptCounts[i] >= 2) {
+                    feedback.innerHTML = "Incorrect again. Correct answer is B. <span class='explanation'>Because it’s the most accurate option.</span>";
+                } else {
+                    feedback.innerHTML = "Incorrect. Try again.";
+                }
             }
         }
     }

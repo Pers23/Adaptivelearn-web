@@ -1,0 +1,19 @@
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f0f8ff;
+  text-align: center;
+}
+.subject-links a {
+  display: block;
+  margin: 15px;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.subject-links a:hover {
+  background: #0056b3;
+}

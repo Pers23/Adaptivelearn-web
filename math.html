@@ -3,14 +3,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math Quiz</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .question { margin-bottom: 20px; }
+        .explanation { display: none; color: green; }
+        button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+    </style>
 </head>
 <body>
-    <h1>Math Quiz</h1>
-    <div id="quiz-container"></div>
-    <button onclick="submitQuiz()">Submit</button>
-    <script src="math.js"></script>
+    <h1>Math Quiz (15 Questions)</h1>
+    <form id="quizForm">
+        <div class="question" data-answer="B">
+            <p>1. What is the value of 5 + 3 × 2?</p>
+            <label><input type="radio" name="q1" value="A"> 16</label><br>
+            <label><input type="radio" name="q1" value="B"> 11</label><br>
+            <label><input type="radio" name="q1" value="C"> 10</label><br>
+            <div class="explanation">Explanation: Use order of operations (PEMDAS). 3 × 2 = 6, then 5 + 6 = 11.</div>
+        </div>
+        <div class="question" data-answer="A">
+            <p>2. What is the area of a rectangle with length 7 cm and width 3 cm?</p>
+            <label><input type="radio" name="q2" value="A"> 21 cm²</label><br>
+            <label><input type="radio" name="q2" value="B"> 10 cm²</label><br>
+            <label><input type="radio" name="q2" value="C"> 24 cm²</label><br>
+            <div class="explanation">Explanation: Area = length × width = 7 × 3 = 21 cm².</div>
+        </div>
+        <!-- Add 13 more real-style questions similarly -->
+        <!-- Placeholder for simplicity. These will be replaced with full questions in the next step. -->
+    </form>
+    <button type="button" onclick="submitQuiz()">Submit</button>
+    <script>
+        function submitQuiz() {
+            let questions = document.querySelectorAll('.question');
+            questions.forEach(q => {
+                let answer = q.getAttribute('data-answer');
+                let selected = q.querySelector('input:checked');
+                if (selected && selected.value !== answer) {
+                    q.querySelector('.explanation').style.display = 'block';
+                }
+            });
+            alert("Quiz submitted. Explanations shown for incorrect answers.");
+        }
+    </script>
 </body>
 </html>

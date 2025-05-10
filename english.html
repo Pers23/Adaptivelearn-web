@@ -1,32 +1,45 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>English Quiz - AdaptiveLearn</title>
-    <style>
-        body { font-family: Arial; padding: 20px; }
-        .question { margin-bottom: 10px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    h1 { color: #333; }
+    .question { margin-bottom: 20px; }
+    .options label { display: block; margin-left: 20px; }
+    .submit-btn { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+    .feedback { color: red; }
+  </style>
 </head>
 <body>
-    <h1>English Quiz</h1>
-    <form>
-        <div class='question'><p>1. Choose the correct verb: She ____ to school every day.</p><input type='radio' name='q0'><label>Answer A</label><br><input type='radio' name='q0'><label>Answer B</label><br><input type='radio' name='q0'><label>Answer C</label><br><input type='radio' name='q0'><label>Answer D</label></div><br>
-<div class='question'><p>2. Which is a synonym for 'happy'?</p><input type='radio' name='q1'><label>Answer A</label><br><input type='radio' name='q1'><label>Answer B</label><br><input type='radio' name='q1'><label>Answer C</label><br><input type='radio' name='q1'><label>Answer D</label></div><br>
-<div class='question'><p>3. Identify the adjective: The red car is fast.</p><input type='radio' name='q2'><label>Answer A</label><br><input type='radio' name='q2'><label>Answer B</label><br><input type='radio' name='q2'><label>Answer C</label><br><input type='radio' name='q2'><label>Answer D</label></div><br>
-<div class='question'><p>4. What is the plural of 'mouse'?</p><input type='radio' name='q3'><label>Answer A</label><br><input type='radio' name='q3'><label>Answer B</label><br><input type='radio' name='q3'><label>Answer C</label><br><input type='radio' name='q3'><label>Answer D</label></div><br>
-<div class='question'><p>5. Which word is an interjection?</p><input type='radio' name='q4'><label>Answer A</label><br><input type='radio' name='q4'><label>Answer B</label><br><input type='radio' name='q4'><label>Answer C</label><br><input type='radio' name='q4'><label>Answer D</label></div><br>
-<div class='question'><p>6. Fill in the blank: I have lived here ____ 2010.</p><input type='radio' name='q5'><label>Answer A</label><br><input type='radio' name='q5'><label>Answer B</label><br><input type='radio' name='q5'><label>Answer C</label><br><input type='radio' name='q5'><label>Answer D</label></div><br>
-<div class='question'><p>7. Identify the noun: He threw the ball.</p><input type='radio' name='q6'><label>Answer A</label><br><input type='radio' name='q6'><label>Answer B</label><br><input type='radio' name='q6'><label>Answer C</label><br><input type='radio' name='q6'><label>Answer D</label></div><br>
-<div class='question'><p>8. Which sentence is punctuated correctly?</p><input type='radio' name='q7'><label>Answer A</label><br><input type='radio' name='q7'><label>Answer B</label><br><input type='radio' name='q7'><label>Answer C</label><br><input type='radio' name='q7'><label>Answer D</label></div><br>
-<div class='question'><p>9. Choose the correct homophone: Their/There/They’re house is big.</p><input type='radio' name='q8'><label>Answer A</label><br><input type='radio' name='q8'><label>Answer B</label><br><input type='radio' name='q8'><label>Answer C</label><br><input type='radio' name='q8'><label>Answer D</label></div><br>
-<div class='question'><p>10. What is the past tense of 'go'?</p><input type='radio' name='q9'><label>Answer A</label><br><input type='radio' name='q9'><label>Answer B</label><br><input type='radio' name='q9'><label>Answer C</label><br><input type='radio' name='q9'><label>Answer D</label></div><br>
-<div class='question'><p>11. Which word is a conjunction?</p><input type='radio' name='q10'><label>Answer A</label><br><input type='radio' name='q10'><label>Answer B</label><br><input type='radio' name='q10'><label>Answer C</label><br><input type='radio' name='q10'><label>Answer D</label></div><br>
-<div class='question'><p>12. Find the antonym of 'cold'.</p><input type='radio' name='q11'><label>Answer A</label><br><input type='radio' name='q11'><label>Answer B</label><br><input type='radio' name='q11'><label>Answer C</label><br><input type='radio' name='q11'><label>Answer D</label></div><br>
-<div class='question'><p>13. What type of sentence is this: Wow, that’s amazing!</p><input type='radio' name='q12'><label>Answer A</label><br><input type='radio' name='q12'><label>Answer B</label><br><input type='radio' name='q12'><label>Answer C</label><br><input type='radio' name='q12'><label>Answer D</label></div><br>
-<div class='question'><p>14. Choose the correct article: ___ apple a day keeps the doctor away.</p><input type='radio' name='q13'><label>Answer A</label><br><input type='radio' name='q13'><label>Answer B</label><br><input type='radio' name='q13'><label>Answer C</label><br><input type='radio' name='q13'><label>Answer D</label></div><br>
-<div class='question'><p>15. What is the subject in the sentence: The dog barked loudly.</p><input type='radio' name='q14'><label>Answer A</label><br><input type='radio' name='q14'><label>Answer B</label><br><input type='radio' name='q14'><label>Answer C</label><br><input type='radio' name='q14'><label>Answer D</label></div><br>
-        <button type="submit">Submit</button>
-    </form>
+  <h1>English Quiz</h1>
+  <form id="quizForm">
+<div class='question'><p><strong>1. Which sentence is punctuated correctly?</strong></p><label><input type='radio' name='q0' value='0'> I went to the store, and bought apples.</label><label><input type='radio' name='q0' value='1'> I went to the store and, bought apples.</label><label><input type='radio' name='q0' value='2'> I went to the store and bought apples.</label><label><input type='radio' name='q0' value='3'> I went, to the store and bought apples.</label><p class='feedback' id='feedback0'></p></div><div class='question'><p><strong>2. What is the past tense of 'go'?</strong></p><label><input type='radio' name='q1' value='0'> goed</label><label><input type='radio' name='q1' value='1'> gone</label><label><input type='radio' name='q1' value='2'> went</label><label><input type='radio' name='q1' value='3'> going</label><p class='feedback' id='feedback1'></p></div><div class='question'><p><strong>3. Choose the synonym for 'happy'.</strong></p><label><input type='radio' name='q2' value='0'> sad</label><label><input type='radio' name='q2' value='1'> angry</label><label><input type='radio' name='q2' value='2'> joyful</label><label><input type='radio' name='q2' value='3'> tired</label><p class='feedback' id='feedback2'></p></div><div class='question'><p><strong>4. Which word is an adjective in the sentence: 'The tall man ran quickly.'?</strong></p><label><input type='radio' name='q3' value='0'> tall</label><label><input type='radio' name='q3' value='1'> ran</label><label><input type='radio' name='q3' value='2'> quickly</label><label><input type='radio' name='q3' value='3'> man</label><p class='feedback' id='feedback3'></p></div><div class='question'><p><strong>5. Identify the verb: 'She reads a book every night.'</strong></p><label><input type='radio' name='q4' value='0'> She</label><label><input type='radio' name='q4' value='1'> reads</label><label><input type='radio' name='q4' value='2'> book</label><label><input type='radio' name='q4' value='3'> night</label><p class='feedback' id='feedback4'></p></div><div class='question'><p><strong>6. Choose the correct homophone: 'I would like to ___ a new dress.'</strong></p><label><input type='radio' name='q5' value='0'> buy</label><label><input type='radio' name='q5' value='1'> by</label><label><input type='radio' name='q5' value='2'> bye</label><label><input type='radio' name='q5' value='3'> bi</label><p class='feedback' id='feedback5'></p></div><div class='question'><p><strong>7. Which of these is a complete sentence?</strong></p><label><input type='radio' name='q6' value='0'> Running to the park.</label><label><input type='radio' name='q6' value='1'> Because I was late.</label><label><input type='radio' name='q6' value='2'> I ate dinner.</label><label><input type='radio' name='q6' value='3'> While watching TV.</label><p class='feedback' id='feedback6'></p></div><div class='question'><p><strong>8. What type of sentence is this: 'What time is it?'</strong></p><label><input type='radio' name='q7' value='0'> Declarative</label><label><input type='radio' name='q7' value='1'> Interrogative</label><label><input type='radio' name='q7' value='2'> Imperative</label><label><input type='radio' name='q7' value='3'> Exclamatory</label><p class='feedback' id='feedback7'></p></div><div class='question'><p><strong>9. Which prefix means 'not'?</strong></p><label><input type='radio' name='q8' value='0'> pre</label><label><input type='radio' name='q8' value='1'> un</label><label><input type='radio' name='q8' value='2'> re</label><label><input type='radio' name='q8' value='3'> mis</label><p class='feedback' id='feedback8'></p></div><div class='question'><p><strong>10. Which sentence uses correct subject-verb agreement?</strong></p><label><input type='radio' name='q9' value='0'> They goes to school.</label><label><input type='radio' name='q9' value='1'> He go to school.</label><label><input type='radio' name='q9' value='2'> She goes to school.</label><label><input type='radio' name='q9' value='3'> We goes to school.</label><p class='feedback' id='feedback9'></p></div><div class='question'><p><strong>11. What is the root word in 'unbelievable'?</strong></p><label><input type='radio' name='q10' value='0'> believe</label><label><input type='radio' name='q10' value='1'> un</label><label><input type='radio' name='q10' value='2'> able</label><label><input type='radio' name='q10' value='3'> liev</label><p class='feedback' id='feedback10'></p></div><div class='question'><p><strong>12. Which of these words is an antonym for 'fast'?</strong></p><label><input type='radio' name='q11' value='0'> quick</label><label><input type='radio' name='q11' value='1'> rapid</label><label><input type='radio' name='q11' value='2'> slow</label><label><input type='radio' name='q11' value='3'> speedy</label><p class='feedback' id='feedback11'></p></div><div class='question'><p><strong>13. Choose the correct form: 'She is ___ than her sister.'</strong></p><label><input type='radio' name='q12' value='0'> tall</label><label><input type='radio' name='q12' value='1'> taller</label><label><input type='radio' name='q12' value='2'> tallest</label><label><input type='radio' name='q12' value='3'> more tall</label><p class='feedback' id='feedback12'></p></div><div class='question'><p><strong>14. Which word best completes the sentence: 'He ___ his homework before dinner.'</strong></p><label><input type='radio' name='q13' value='0'> do</label><label><input type='radio' name='q13' value='1'> did</label><label><input type='radio' name='q13' value='2'> done</label><label><input type='radio' name='q13' value='3'> does</label><p class='feedback' id='feedback13'></p></div><div class='question'><p><strong>15. What is the correct contraction for 'they are'?</strong></p><label><input type='radio' name='q14' value='0'> their</label><label><input type='radio' name='q14' value='1'> there</label><label><input type='radio' name='q14' value='2'> they're</label><label><input type='radio' name='q14' value='3'> the're</label><p class='feedback' id='feedback14'></p></div>
+    <button class="submit-btn" type="button" onclick="checkAnswers()">Submit</button>
+  </form>
+  <script>
+    const answers = [2,2,2,0,1,0,2,1,1,2,0,2,1,1,2],
+          explanations = ["The sentence 'I went to the store and bought apples.' is correct because it does not require a comma before 'and' when joining two verbs with the same subject.","'Went' is the correct past tense form of 'go'.","'Joyful' means the same as 'happy'.","'Tall' describes the man, so it is an adjective.","'Reads' is the action being performed, which is the verb.","'Buy' is the correct word meaning to purchase.","'I ate dinner.' is a complete sentence with a subject and verb.","A sentence that asks a question is called an interrogative sentence.","'Un' means not, as in 'unhappy' meaning not happy.","'She goes to school.' is correct; the verb agrees with the singular subject.","'Believe' is the root word, with 'un-' as prefix and '-able' as suffix.","'Slow' is the opposite of 'fast'.","'Taller' is the comparative form used when comparing two people.","'Did' is the correct past tense form.","'They're' is the contraction of 'they are'."];
+
+    function checkAnswers() {
+      for (let i = 0; i < answers.length; i++) {
+        const options = document.getElementsByName("q" + i);
+        let selected = -1;
+        for (let j = 0; j < options.length; j++) {
+          if (options[j].checked) selected = parseInt(options[j].value);
+        }
+        const feedback = document.getElementById("feedback" + i);
+        if (selected === answers[i]) {
+          feedback.style.color = "green";
+          feedback.innerText = "Correct!";
+        } else {
+          feedback.style.color = "red";
+          feedback.innerText = "Incorrect. " + explanations[i];
+        }
+      }
+    }
+  </script>
 </body>
 </html>

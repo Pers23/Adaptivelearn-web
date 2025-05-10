@@ -1,32 +1,57 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Math Quiz - AdaptiveLearn</title>
-    <style>
-        body { font-family: Arial; padding: 20px; }
-        .question { margin-bottom: 10px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Math Quiz</title>
 </head>
 <body>
-    <h1>Math Quiz</h1>
-    <form>
-        <div class='question'><p>1. What is the value of 7 × 8?</p><input type='radio' name='q0'><label>Answer A</label><br><input type='radio' name='q0'><label>Answer B</label><br><input type='radio' name='q0'><label>Answer C</label><br><input type='radio' name='q0'><label>Answer D</label></div><br>
-<div class='question'><p>2. Simplify: 3(2x + 4) = ?</p><input type='radio' name='q1'><label>Answer A</label><br><input type='radio' name='q1'><label>Answer B</label><br><input type='radio' name='q1'><label>Answer C</label><br><input type='radio' name='q1'><label>Answer D</label></div><br>
-<div class='question'><p>3. What is the area of a triangle with base 10 cm and height 5 cm?</p><input type='radio' name='q2'><label>Answer A</label><br><input type='radio' name='q2'><label>Answer B</label><br><input type='radio' name='q2'><label>Answer C</label><br><input type='radio' name='q2'><label>Answer D</label></div><br>
-<div class='question'><p>4. Convert 0.75 to a fraction.</p><input type='radio' name='q3'><label>Answer A</label><br><input type='radio' name='q3'><label>Answer B</label><br><input type='radio' name='q3'><label>Answer C</label><br><input type='radio' name='q3'><label>Answer D</label></div><br>
-<div class='question'><p>5. Solve: 2x – 5 = 11</p><input type='radio' name='q4'><label>Answer A</label><br><input type='radio' name='q4'><label>Answer B</label><br><input type='radio' name='q4'><label>Answer C</label><br><input type='radio' name='q4'><label>Answer D</label></div><br>
-<div class='question'><p>6. What is the perimeter of a rectangle 5m by 3m?</p><input type='radio' name='q5'><label>Answer A</label><br><input type='radio' name='q5'><label>Answer B</label><br><input type='radio' name='q5'><label>Answer C</label><br><input type='radio' name='q5'><label>Answer D</label></div><br>
-<div class='question'><p>7. What is 20% of 150?</p><input type='radio' name='q6'><label>Answer A</label><br><input type='radio' name='q6'><label>Answer B</label><br><input type='radio' name='q6'><label>Answer C</label><br><input type='radio' name='q6'><label>Answer D</label></div><br>
-<div class='question'><p>8. Find the mean of 4, 8, 6, 10.</p><input type='radio' name='q7'><label>Answer A</label><br><input type='radio' name='q7'><label>Answer B</label><br><input type='radio' name='q7'><label>Answer C</label><br><input type='radio' name='q7'><label>Answer D</label></div><br>
-<div class='question'><p>9. Which is a prime number: 4, 6, 9, 11?</p><input type='radio' name='q8'><label>Answer A</label><br><input type='radio' name='q8'><label>Answer B</label><br><input type='radio' name='q8'><label>Answer C</label><br><input type='radio' name='q8'><label>Answer D</label></div><br>
-<div class='question'><p>10. Find x: x² = 49</p><input type='radio' name='q9'><label>Answer A</label><br><input type='radio' name='q9'><label>Answer B</label><br><input type='radio' name='q9'><label>Answer C</label><br><input type='radio' name='q9'><label>Answer D</label></div><br>
-<div class='question'><p>11. What is the square root of 64?</p><input type='radio' name='q10'><label>Answer A</label><br><input type='radio' name='q10'><label>Answer B</label><br><input type='radio' name='q10'><label>Answer C</label><br><input type='radio' name='q10'><label>Answer D</label></div><br>
-<div class='question'><p>12. Write 2/5 as a decimal.</p><input type='radio' name='q11'><label>Answer A</label><br><input type='radio' name='q11'><label>Answer B</label><br><input type='radio' name='q11'><label>Answer C</label><br><input type='radio' name='q11'><label>Answer D</label></div><br>
-<div class='question'><p>13. What is the volume of a cube with side 3 cm?</p><input type='radio' name='q12'><label>Answer A</label><br><input type='radio' name='q12'><label>Answer B</label><br><input type='radio' name='q12'><label>Answer C</label><br><input type='radio' name='q12'><label>Answer D</label></div><br>
-<div class='question'><p>14. What is 3 to the power of 4?</p><input type='radio' name='q13'><label>Answer A</label><br><input type='radio' name='q13'><label>Answer B</label><br><input type='radio' name='q13'><label>Answer C</label><br><input type='radio' name='q13'><label>Answer D</label></div><br>
-<div class='question'><p>15. How many degrees in a right angle?</p><input type='radio' name='q14'><label>Answer A</label><br><input type='radio' name='q14'><label>Answer B</label><br><input type='radio' name='q14'><label>Answer C</label><br><input type='radio' name='q14'><label>Answer D</label></div><br>
-        <button type="submit">Submit</button>
-    </form>
+  <h1>Math Quiz (15 Real Questions)</h1>
+  <div id="quiz"></div>
+  <button onclick="submitQuiz()">Submit</button>
+  <div id="results"></div>
+  <script>
+    const questions = [
+      { q: "What is the value of 8 × 7?", a: "56", options: ["54", "56", "64", "48"], e: "8 times 7 equals 56." },
+      { q: "Solve for x: 2x + 3 = 11", a: "4", options: ["3", "4", "5", "6"], e: "2x = 8 → x = 4" },
+      { q: "What is the square root of 144?", a: "12", options: ["10", "11", "12", "13"], e: "√144 = 12" },
+      { q: "Simplify: 3(2x + 4)", a: "6x + 12", options: ["6x + 4", "5x + 4", "6x + 12", "3x + 12"], e: "Use distributive law." },
+      { q: "What is 15% of 200?", a: "30", options: ["25", "30", "35", "40"], e: "15% × 200 = 30." },
+      { q: "Convert 0.75 to a fraction.", a: "3/4", options: ["1/2", "2/3", "3/4", "4/5"], e: "0.75 = 75/100 = 3/4." },
+      { q: "How many degrees in a right angle?", a: "90", options: ["45", "90", "180", "360"], e: "A right angle is always 90°." },
+      { q: "Find the area of a triangle with base 10 and height 5.", a: "25", options: ["50", "25", "30", "20"], e: "½ × base × height = ½ × 10 × 5 = 25" },
+      { q: "What comes after 3.14 in pi?", a: "1", options: ["2", "1", "4", "6"], e: "π = 3.14159…" },
+      { q: "What is 2³?", a: "8", options: ["6", "8", "9", "12"], e: "2³ = 2×2×2 = 8" },
+      { q: "If a = 4, what is a²?", a: "16", options: ["8", "12", "16", "20"], e: "4² = 16" },
+      { q: "How many sides does a hexagon have?", a: "6", options: ["5", "6", "7", "8"], e: "Hexa = 6" },
+      { q: "What's the median of [3, 5, 7]?", a: "5", options: ["3", "5", "7", "6"], e: "Middle value is 5" },
+      { q: "What's 9 × 9?", a: "81", options: ["72", "81", "90", "99"], e: "9 times 9 equals 81" },
+      { q: "What is 100 divided by 4?", a: "25", options: ["20", "25", "30", "40"], e: "100 ÷ 4 = 25" }
+    ];
+
+    const quizDiv = document.getElementById("quiz");
+    questions.forEach((q, i) => {
+      quizDiv.innerHTML += `<p>${i+1}. ${q.q}</p>`;
+      q.options.forEach(opt => {
+        quizDiv.innerHTML += `<label><input type="radio" name="q${i}" value="${opt}"/> ${opt}</label><br/>`;
+      });
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      let results = "";
+      questions.forEach((q, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        const answer = selected ? selected.value : "";
+        if (answer === q.a) {
+          score++;
+        } else {
+          results += `<p>Q${i+1}: Incorrect. Explanation: ${q.e}</p>`;
+        }
+      });
+      results = `<h2>Your Score: ${score}/15</h2>` + results;
+      document.getElementById("results").innerHTML = results;
+    }
+  </script>
 </body>
 </html>

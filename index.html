@@ -1,16 +1,26 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AdaptiveLearn</title>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <title>AdaptiveLearn Interface</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to AdaptiveLearn</h1>
-    <ul>
-        <li><a href="math.html">Math Quiz</a></li>
-        <li><a href="english.html">English Quiz</a></li>
-        <li><a href="science.html">Natural Sciences Quiz</a></li>
-    </ul>
+    <div class="container">
+        <h1>AdaptiveLearn Chat and Call</h1>
+        <div class="chat-container">
+            <div id="chat-box"></div>
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+        <div class="call-controls">
+            <button onclick="startVoiceCall()">Start Voice Call</button>
+            <button onclick="startVideoCall()">Start Video Call</button>
+        </div>
+        <video id="localVideo" autoplay muted></video>
+        <video id="remoteVideo" autoplay></video>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

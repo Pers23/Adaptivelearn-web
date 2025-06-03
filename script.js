@@ -1,30 +1,23 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-  const quizForm = document.getElementById("quiz-form");
-  const resultsDiv = document.getElementById("results");
-  const shuffledQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 15);
+const chatBox = document.getElementById("chat-box");
+const chatInput = document.getElementById("chat-input");
 
-  shuffledQuestions.forEach((q, index) => {
-    const div = document.createElement("div");
-    div.className = "question";
-    div.innerHTML = \`<p><strong>Q\${index + 1}:</strong> \${q.question}</p>\` +
-      q.options.map((opt, i) =>
-        \`<label><input type="radio" name="q\${index}" value="\${i}"> \${opt}</label><br>\`).join("");
-    quizForm.appendChild(div);
-  });
+function sendMessage() {
+    const message = chatInput.value;
+    if (message.trim()) {
+        const p = document.createElement("p");
+        p.textContent = "You: " + message;
+        chatBox.appendChild(p);
+        chatInput.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+}
 
-  document.getElementById("submit-btn").addEventListener("click", () => {
-    let score = 0;
-    let output = "";
-    shuffledQuestions.forEach((q, index) => {
-      const userAnswer = quizForm["q" + index].value;
-      if (userAnswer == q.correctIndex) {
-        score++;
-      } else {
-        output += \`<p>Question \${index + 1}: Incorrect. \${q.explanation}</p>\`;
-      }
-    });
-    output = "<h2>Score: " + score + "/15</h2>" + output;
-    resultsDiv.innerHTML = output;
-  });
-});
+// Placeholder for call features
+function startVoiceCall() {
+    alert("Voice call feature coming soon...");
+}
+
+function startVideoCall() {
+    alert("Video call feature coming soon...");
+}
